@@ -1,0 +1,31 @@
+spring:
+  profiles:
+    active: devlocal
+  application:
+    name: hk-pos
+  jackson:
+    default-property-inclusion: non_null
+
+server:
+  port: 38083
+
+logging:
+  pattern:
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+  level:
+    root: info
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+huoku:
+  jwt:
+    privateKey: ${HK_POS_JWT_PRV_KEY}
+    publicKey: ${HK_POS_JWT_PUB_KEY}
+
+
